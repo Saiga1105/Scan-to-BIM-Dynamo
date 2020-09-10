@@ -3,12 +3,11 @@
 This toolbox includes functions for the reconstruction of BIM geometry.
 It features a general modular pipeline with the following steps
 
-0. **Utility**: Some utility functions for mesh and point cloud mutation.
-1. **Segmentation**: segments meshes and point clouds
-2. **Classification**: labels the segments into walls, ceilings, floors, etc.
-3. **Clustering**: groups labelled segments into groups of walls
-4. **Reconstruction**: extracts information from grouped segments to feed BIM geometry e.g. https://www.visualarq.com/ walls.
-5. **Linked Building Data**: Publish the intermediate results as .sjon/.rdf
+0. **General**: Some utility functions for mesh and point cloud mutation.
+1. **Point clouds**: Point cloud tools i.e. cleanup, registration, etc.
+3. **Structure**: Detect and model the base structure i.e. walls, slabs, ceilings, columns, beams
+4. **Windows/Doors**: Detect and model window and door objects from object libraries
+5. **Appliances**: Detect and model appliance objects from HVAC, MEP and FM libraries
  
 The **Example** files contain example .dyn workflows for each step.  
 The **Samples** contains some meshes and point clouds for each step.
