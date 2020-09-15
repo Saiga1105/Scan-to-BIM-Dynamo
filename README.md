@@ -38,7 +38,7 @@ Use github's Large File System (LFS) to push changes to the origin.
 * Install LFS GIT
 * Clone all repositories (LFS does not support regular download)
 * install VSIX extension for Dynamo template https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit.git
-* install Dynamo Sandbox (handier than Revit Dynamo)
+* install latest Dynamo Sandbox https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
 
 * install matlab runtime 9.4.1 (2019b)
 * Open project solution
