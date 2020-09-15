@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32D1020E-238E-422D-90D9-0BAEB39B500F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Saiga</RootNamespace>
+    <AssemblyName>Saiga</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files\Dynamo\Dynamo Core\2\DynamoSandbox.exe</StartProgram>
+    <FileAlignment>512</FileAlignment>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>$(OutputPath)Saiga.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="2.2.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="2.2.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="2.2.*">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="dist\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="manifests\pkg.json" />
+    <None Include="manifests\Saiga_DynamoCustomization.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\HelloDynamo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PackageName>Saiga</PackageName>
+    <PackageFolder>$(ProjectDir)dist\$(PackageName)\</PackageFolder>
+    <BinFolder>$(PackageFolder)bin\</BinFolder>
+    <ExtraFolder>$(PackageFolder)extra\</ExtraFolder>
+    <DyfFolder>$(PackageFolder)dyf\</DyfFolder>
+  </PropertyGroup>
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <Dlls Include="$(OutDir)*.dll" />
+      <Pdbs Include="$(OutDir)*.pdb" />
+      <Xmls Include="$(OutDir)*.xml" />
+      <Xmls Include="$(ProjectDir)manifests\*.xml" />
+      <PackageJson Include="$(ProjectDir)manifests\pkg.json" />
+    </ItemGroup>
+    <Copy SourceFiles="@(Dlls)" DestinationFolder="$(BinFolder)" />
+    <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(BinFolder)" />
+    <Copy SourceFiles="@(Xmls)" DestinationFolder="$(BinFolder)" />
+    <Copy SourceFiles="@(PackageJson)" DestinationFolder="$(PackageFolder)" />
+    <MakeDir Directories="$(ExtraFolder)" Condition="!Exists($(ExtraFolder))">
+    </MakeDir>
+    <MakeDir Directories="$(DyfFolder)" Condition="!Exists($(DyfFolder))">
+    </MakeDir>
+    <CallTarget Condition="'$(Configuration)' == 'Debug'" Targets="PackageDeploy" />
+  </Target>
+  <Target Name="PackageDeploy">
+    <ItemGroup>
+      <SourcePackage Include="$(PackageFolder)**\*" />
+    </ItemGroup>
+    <PropertyGroup>
+      <DynamoCore>$(AppData)\Dynamo\Dynamo Core\2.2\packages</DynamoCore>
+      <DynamoRevit>$(AppData)\Dynamo\Dynamo Revit\2.2\packages</DynamoRevit>
+    </PropertyGroup>
+    <!--Copying to Package Folder-->
+    <Copy SourceFiles="@(SourcePackage)" Condition="Exists($(DynamoCore))" DestinationFolder="$(DynamoCore)\$(PackageName)\%(RecursiveDir)" />
+    <Copy SourceFiles="@(SourcePackage)" Condition="Exists($(DynamoRevit))" DestinationFolder="$(DynamoRevit)\$(PackageName)\%(RecursiveDir)" />
+  </Target>
+</Project>

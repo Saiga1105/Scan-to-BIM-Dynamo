@@ -1,0 +1,20 @@
+﻿{
+  "license": "",
+  "file_hash": null,
+  "name": "Saiga",
+  "version": "0.1.0",
+  "description": "Scan-to-BIM package to convert point cloud data to BIM models",
+  "group": "",
+  "keywords": null,
+  "dependencies": [],
+  "contents": "",
+  "engine_version": "2.2",
+  "engine": "dynamo",
+  "engine_metadata": "",
+  "site_url": "https://iiw.kuleuven.be/onderzoek/geomatics",
+  "repository_url": "https://github.com/Saiga1105/Scan-to-BIM-Dynamo.git",
+  "contains_binaries": true,
+  "node_libraries": [
+    "Saiga, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
