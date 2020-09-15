@@ -17,17 +17,6 @@ The **Samples** contains some meshes and point clouds for each step.
 Step 1-3 are based on Matlab code. To develop the native matlab functions, use the related toolboxes (see Related Toolboxes Section)
 
 ### Install & Use
-* Clone all repositories (LFS does not support regular download)
-* install matlab runtime 9.4.1 (2019b)
-* start Revit
-* enter commandline ... and add ...\bin folder (where you just built the plugin)
-* Restart Revit and Dynamo
-* Reference a point cloud (e.g. Samples\E003.rcs)
-* open a .dyn workflow (e.g. Examples\Classification\Classification_1.dyn)
-* reference the point clouds in the geometry node on the left
-* bake the classified geometry on the right
-
-### Contribute
 There are several large files in this repository (matlab .dll's and sample files)
 Use github's Large File System (LFS) to push changes to the origin.
 
@@ -36,26 +25,16 @@ Use github's Large File System (LFS) to push changes to the origin.
 * Install .NET Framework 4.7.2 Developer Pack
 * Install GIT
 * Install LFS GIT
-* Clone all repositories (LFS does not support regular download)
+* Clone repository (LFS does not support regular download)
 * install VSIX extension for Dynamo template https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit.git
-* install latest Dynamo Sandbox https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
-
+* (optional) install latest Dynamo Sandbox https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
 * install matlab runtime 9.4.1 (2019b)
-* Open project solution
-* Add reference paths (properties of C# project Scan2BIM)
+* Open Saiga.sln project solution
 * build solution
-* start Revit
-* enter commandline GrassHopperDevelopersettings and add \bin folder (where you just built the plugin)
-* Restart Rhino and Grasshopper
-
-* make sure the .dll files are tracked after commiting
-	* git lfs track '*.dll'
-	* git lfs track '*.mat'
-	* git lfs track '*.3dm'
-	* git lfs track '*.obj'
-	* git lfs track '*.stl'
-	* git lfs track '*.json'
-	* git lfs track '*.rdf'
+* start Revit/Dynamo (or sandbox)
+* import package ..\Saiga\bin\Debug\Saiga.dll
+* Open a .dyn canvass ..\Examples\General\Geometry_Solids.dyn
+* Reference a point cloud and process it \Samples\sample1.rcs
 	
 ### License 
 If you use this software in a publication, please cite the work using the following information:
