@@ -31,11 +31,15 @@ Step 1-3 are based on Matlab code. To develop the native matlab functions, use t
 There are several large files in this repository (matlab .dll's and sample files)
 Use github's Large File System (LFS) to push changes to the origin.
 
-* Install Vstudio
-* Install .NET framework 4.6.1
+* Install Vstudio 2019
+* Install Visual Studio SDK
+* Install .NET Framework 4.7.2 Developer Pack
 * Install GIT
 * Install LFS GIT
 * Clone all repositories (LFS does not support regular download)
+* install VSIX extension for Dynamo template https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit.git
+* install Dynamo Sandbox (handier than Revit Dynamo)
+
 * install matlab runtime 9.4.1 (2019b)
 * Open project solution
 * Add reference paths (properties of C# project Scan2BIM)
@@ -67,18 +71,10 @@ Do not use for commercial purposes.
 * GIT LFS https://git-lfs.github.com/
 * M. Schmidt. UGM: A Matlab toolbox for probabilistic undirected graphical models. http://www.cs.ubc.ca/~schmidtm/Software/UGM.html, 2007.
 * MATLAB Runtime version 9.4 (R2018a). You can download it at http://www.mathworks.com/products/compiler/mcr/index.html
-* Volvox https://www.food4rhino.com/app/volvox , DURAARK http://duraark.eu/ a European project
-* RhinoInside https://www.rhino3d.com/inside
-* Rhinocommon https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm
-* .NET framework 4.6.1 https://dotnet.microsoft.com/download/dotnet-framework/net461
-* EleFront grasshopper plugin
-* MeshEdit Components grasshopper plugin
+
 
 ### Related Toolboxes
-The grashopper plug in consumes following Open Source Toolboxes from the same author.
+This plug in consumes the following Open Source toolbox from the same author.
 
-* S2B-Segmentation  
-* S2B-Classification  
-* S2B-Clustering  
-* S2B-Reconstruction  
+* Scan-to-BIM-Matlab  
 
