@@ -1,4 +1,6 @@
 ﻿.vs
 .3dmbak
 packages
-Scan2BIM/obj
+Saiga/obj
+Saiga/bin
+Saiga/dist
