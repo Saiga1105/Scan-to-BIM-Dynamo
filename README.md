@@ -22,6 +22,7 @@ Use github's Large File System (LFS) to push changes to the origin.
 
 * Install Vstudio 2019
 * Install Visual Studio SDK
+* Install .NET Web and Desktop development
 * Install .NET Framework 4.8 Developer Pack
 * Install GIT
 * Install LFS GIT
