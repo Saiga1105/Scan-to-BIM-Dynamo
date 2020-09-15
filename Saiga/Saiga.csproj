@@ -69,6 +69,7 @@
     <None Include="manifests\Saiga_DynamoCustomization.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\HelloDynamo - Copy.cs" />
     <Compile Include="src\HelloDynamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
