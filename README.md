@@ -1,5 +1,7 @@
 # Scan-to-BIM Dynamo package
 
+![Overview](https://github.com/Saiga1105/Scan-to-BIM-Grasshopper/blob/master/Pics/Overview.PNG)
+
 This toolbox includes functions for the reconstruction of BIM geometry.
 It features a general modular pipeline with the following steps
 
