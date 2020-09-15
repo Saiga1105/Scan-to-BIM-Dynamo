@@ -22,12 +22,13 @@ Use github's Large File System (LFS) to push changes to the origin.
 
 * Install Vstudio 2019
 * Install Visual Studio SDK
-* Install .NET Framework 4.7.2 Developer Pack
+* Install .NET Framework 4.8 Developer Pack
 * Install GIT
 * Install LFS GIT
 * Clone repository (LFS does not support regular download)
 * install VSIX extension for Dynamo template https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit.git
-* (optional) install latest Dynamo Sandbox https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
+* install Autodesk.Revit.SDK 2021.0.0 https://www.nuget.org/packages/Autodesk.Revit.SDK/
+* install Dynamo Sandbox 2.8 https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
 * install matlab runtime 9.4.1 (2019b)
 * Open Saiga.sln project solution
 * build solution
