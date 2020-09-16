@@ -16,8 +16,9 @@ namespace Saiga
         /// Prints a friendly greeting
         /// </summary>
         /// <param name="name">Name of the person to greet</param>
-        /// <returns>A greeting</returns>
-        public static string SayHello(string name)
+        /// <returns name = "My_first_outputName"> output1</returns>
+        /// <search>example,curve</search>
+        public static string SayHello(string name) // here you can specify default and any Autodesk.DesignScript.Geometry
         {
             return String.Format("Hello {0}!", name);
         }

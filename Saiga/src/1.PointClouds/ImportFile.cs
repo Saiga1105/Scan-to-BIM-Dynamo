@@ -20,8 +20,9 @@ namespace PointClouds  /// this is our main namespace
         /// <summary>
         /// Imports an .E57 point cloud 
         /// </summary>
-        /// <param fileName="fileName"> Full file path of the point cloud to import </param>
-        /// <returns>pointCloud</returns>
+        /// <param name="fileName"> Full file path of the point cloud to import </param>
+        /// <returns name = "My_first_outputName"> output1</returns>
+        /// <search>example,curve</search>
         public static string ImportE57 (string fileName)
         {
             float x = 2.5F, y = 0.0F, z = 0.0F;
@@ -35,8 +36,9 @@ namespace PointClouds  /// this is our main namespace
         /// <summary>
         /// Imports an .RCS point cloud 
         /// </summary>
-        /// <param fileName="fileName"> Full file path of the point cloud to import </param>
-        /// <returns>pointCloud</returns>
+        /// <param name="fileName"> Full file path of the point cloud to import </param>
+        /// <returns name = "My_first_outputName"> output1</returns>
+        /// <search>example,curve</search>
         public static string ImportRCS(string fileName)
         {
             float x = 2.5F, y = 0.0F, z = 0.0F;

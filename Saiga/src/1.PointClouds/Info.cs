@@ -14,24 +14,31 @@ using rc = Rhino.Geometry;
 namespace PointClouds
 {
     /// <summary>
-    /// Retrieve points from box selection
+    /// Get statistics of point cloud
     /// </summary>
-    public static class Selection 
+    public static class Statistics 
     {
         /// <summary>
-        /// Returns a pointCloud within a boundingBox selection. API is restricted to 1M points per boundingBox
+        /// Get statistics of point cloud
         /// </summary>
         /// <param name="fileName">Full file path of the point cloud to import </param>
         /// <returns name = "My_first_outputName"> output1</returns>
+        /// <returns name = "My_second_outputName"> output2</returns>
         /// <search>example,curve</search>
-        public static string BoundingBoxSelection( string fileName)
+        [MultiReturn(new[] { "output1", "output2" })]
+        public static Dictionary<string, object> GetStatistics ( string fileName)
         {
             float x = 2.5F, y = 0.0F, z = 0.0F;
             var coord= new rv.XYZ( x,  y,  z);
             var test = new CloudPoint(x, y, z,255);
-            
 
-            return String.Format("I've selected a point cloud!", fileName);
+            var output1 = "test";
+            var output2 = new Object();
+
+            return new Dictionary<string, object> {
+                { "output1", (output1) },
+                { "output2", (output2) }
+            };
         }
        
     }
