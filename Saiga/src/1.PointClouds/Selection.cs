@@ -11,12 +11,12 @@ using Rhino;
 using rc = Rhino.Geometry;
 
 
-namespace Saiga.PointClouds
+namespace PointClouds
 {
     /// <summary>
     /// Retrieve points from box selection
     /// </summary>
-    public class Selection 
+    public static class Selection 
     {
         /// <summary>
         /// Returns a pointCloud within a boundingBox selection. API is restricted to 1M points per boundingBox

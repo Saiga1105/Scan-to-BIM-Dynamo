@@ -10,17 +10,17 @@ using mw = MATLAB;
 using Rhino;
 using rc = Rhino.Geometry;
 
-namespace Saiga.PointClouds  /// this is our main namespace
+namespace PointClouds  /// this is our main namespace
 {
     /// <summary>
     /// Imports an .rcs point cloud 
     /// </summary>
-    public class ImportFile   /// this is our nested namespace
+    public static class ImportFile   /// this is our nested namespace
     {
         /// <summary>
-        /// Imports an .rcs point cloud 
+        /// Imports an .E57 point cloud 
         /// </summary>
-        /// <param fileName="fileName">Full file path of the point cloud to import </param>
+        /// <param fileName="fileName"> Full file path of the point cloud to import </param>
         /// <returns>pointCloud</returns>
         public static string ImportE57 (string fileName)
         {
@@ -32,7 +32,11 @@ namespace Saiga.PointClouds  /// this is our main namespace
             return String.Format("E57 imported", fileName);
 
         }
-
+        /// <summary>
+        /// Imports an .RCS point cloud 
+        /// </summary>
+        /// <param fileName="fileName"> Full file path of the point cloud to import </param>
+        /// <returns>pointCloud</returns>
         public static string ImportRCS(string fileName)
         {
             float x = 2.5F, y = 0.0F, z = 0.0F;
