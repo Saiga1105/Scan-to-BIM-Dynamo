@@ -1,0 +1,446 @@
+{
+  "Uuid": "eea0c7ee-9169-4f7e-a365-8413279c0c38",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "ImportFile",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "2170a3c4-0134-4ad4-91df-0a961d39e477",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "4e3959208481457da81f15cbfde41563",
+      "Inputs": [
+        {
+          "Id": "79e62610f20b45688bde10427d8f5da1",
+          "Name": "",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3210eafd1d0542a790ace2689ba927cd",
+          "Name": "Box",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0e1187d943ae48d5af69e0d1135157cf",
+          "Name": "AverageDistance",
+          "Description": "double\nDefault value : 0.001",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b74247069ec4f39ac22280234f42d14",
+          "Name": "NumberOfPoints",
+          "Description": "double\nDefault value : 50000",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a4d9dfa533ed43fdae7bb7ead6007459",
+          "Name": "Points",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "WIP: collects the points from a point cloud instance by using a box shape collector (aka a Revit element such as a Mass). Mass geometry has to be a box (parallel faces).\r\nThe number of points read must range from 1 to 1000000. Default 50000.\r\nAverage Distance is a setting for PC density. Less distance increases the number of points.\r\n"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "015140d3d00742958b59db8e61cb6e15",
+      "Inputs": [
+        {
+          "Id": "3e13a8d1ec5f4d2c89abc324fdac54fc",
+          "Name": "path",
+          "Description": "Path to the file.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "53ebb9cf1efd422ca17e8b1ded7ebf91",
+          "Name": "file",
+          "Description": "File object",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a file object from a path."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "D:\\Data\\2016_03 E003 lidar\\test0.2.rcs",
+      "InputValue": "D:\\Data\\2016_03 E003 lidar\\test0.2.rcs",
+      "NodeType": "ExtensionNode",
+      "Id": "6a723f9847cd4f169fc4b316833337f8",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ecf9ddae92ba41deaec6f290df98f7b4",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Geometry.BoundingBox",
+      "Id": "d87db3c33349488d9a267c2841a9c5e8",
+      "Inputs": [
+        {
+          "Id": "023849365f8c433ab5ba00efcb4719e8",
+          "Name": "geometry",
+          "Description": "Autodesk.DesignScript.Geometry.Geometry",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8886716b19844b5cbfe21e05c30b8dbc",
+          "Name": "BoundingBox",
+          "Description": "BoundingBox",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get the BoundingBox containing the given piece of Geometry\n\nGeometry.BoundingBox: BoundingBox"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.DesignScript.Geometry.Cuboid.ByLengths@double,double,double",
+      "Id": "1060f1a8308149d789519d97d7c80997",
+      "Inputs": [
+        {
+          "Id": "b4580622fb2d43d8a73bdb763931a247",
+          "Name": "width",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "029636c4d3fc44e0b8675de20d706aec",
+          "Name": "length",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c66ca782d7fe42afa6ed6645a120b2c2",
+          "Name": "height",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2c0193c1a8484616b6a1205ac68d5c0f",
+          "Name": "Cuboid",
+          "Description": "Cuboid",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Create a Cuboid centered at WCS origin, with width, length, and height.\n\nCuboid.ByLengths (width: double = 1, length: double = 1, height: double = 1): Cuboid"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleSlider, CoreNodeModels",
+      "NodeType": "NumberInputNode",
+      "NumberType": "Double",
+      "MaximumValue": 100.0,
+      "MinimumValue": 0.0,
+      "StepValue": 0.1,
+      "InputValue": 7.1000000000000005,
+      "Id": "abea80072ab04618856c174c74347bfe",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "c9ce5f1151574f5497e9ad3dc4d26f77",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "A slider that produces numeric values."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.ImportFile@string",
+      "Id": "7732a5ab53a64c998855d6293c9d5ea3",
+      "Inputs": [
+        {
+          "Id": "90588d2f44b744a9a86aafee972dd019",
+          "Name": "fileName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cbf5d199cce24d83a150be6ab9a98cfd",
+          "Name": "Mesh[]",
+          "Description": "Mesh[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Imports a file, parsing it into a number of Meshes. Currently supported formats are: .mix -- Meshmixer .obj -- Wavefront\n\nMesh.ImportFile (fileName: string): Mesh[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "D:\\Data\\Mesh_castle\\Building.obj",
+      "InputValue": "D:\\Data\\Mesh_castle\\Building.obj",
+      "NodeType": "ExtensionNode",
+      "Id": "60bd10716a3b45f881d80ef7a993207f",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "97939ac7b58e4ccebac66625be4e5004",
+          "Name": "",
+          "Description": "Filename",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its filename"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "53ebb9cf1efd422ca17e8b1ded7ebf91",
+      "End": "79e62610f20b45688bde10427d8f5da1",
+      "Id": "0239228ccede42368bce0cd6a6091a17"
+    },
+    {
+      "Start": "ecf9ddae92ba41deaec6f290df98f7b4",
+      "End": "3e13a8d1ec5f4d2c89abc324fdac54fc",
+      "Id": "8d4badfbebd64df780e85064b54513c1"
+    },
+    {
+      "Start": "8886716b19844b5cbfe21e05c30b8dbc",
+      "End": "3210eafd1d0542a790ace2689ba927cd",
+      "Id": "9047d4dc929a40cf8f8625e6720def87"
+    },
+    {
+      "Start": "2c0193c1a8484616b6a1205ac68d5c0f",
+      "End": "023849365f8c433ab5ba00efcb4719e8",
+      "Id": "9d538800902e4aad8982429f59640f86"
+    },
+    {
+      "Start": "c9ce5f1151574f5497e9ad3dc4d26f77",
+      "End": "b4580622fb2d43d8a73bdb763931a247",
+      "Id": "2a1bcd1b610249be9da208fe1a2bb01e"
+    },
+    {
+      "Start": "c9ce5f1151574f5497e9ad3dc4d26f77",
+      "End": "029636c4d3fc44e0b8675de20d706aec",
+      "Id": "3f34014def494e3c92263b800feb367a"
+    },
+    {
+      "Start": "c9ce5f1151574f5497e9ad3dc4d26f77",
+      "End": "c66ca782d7fe42afa6ed6645a120b2c2",
+      "Id": "273cc9e652d543d9b97b3b3ce770fa48"
+    },
+    {
+      "Start": "97939ac7b58e4ccebac66625be4e5004",
+      "End": "90588d2f44b744a9a86aafee972dd019",
+      "Id": "7132575ca3834300aeb757b688573a24"
+    }
+  ],
+  "Dependencies": [
+    "2170a3c4-0134-4ad4-91df-0a961d39e477"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "SteamNodes",
+      "Version": "1.2.4",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "4e3959208481457da81f15cbfde41563"
+      ]
+    },
+    {
+      "Name": "MeshToolkit",
+      "Version": "3.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "7732a5ab53a64c998855d6293c9d5ea3"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.8.0.2471",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 2.6523418426513672,
+      "EyeY": 28.857296943664551,
+      "EyeZ": 11.115373611450195,
+      "LookX": 8.79913330078125,
+      "LookY": -10.515024185180664,
+      "LookZ": -14.825687408447266,
+      "UpX": 0.16616466641426086,
+      "UpY": 0.9455186128616333,
+      "UpZ": -0.27997145056724548
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "PointCloud.GetPointsFromBoxSelection",
+        "Id": "4e3959208481457da81f15cbfde41563",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 304.5,
+        "Y": 242.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File From Path",
+        "Id": "015140d3d00742958b59db8e61cb6e15",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 163.5,
+        "Y": 243.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "6a723f9847cd4f169fc4b316833337f8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -92.38893298363314,
+        "Y": 239.20295606560853
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Geometry.BoundingBox",
+        "Id": "d87db3c33349488d9a267c2841a9c5e8",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 559.5,
+        "Y": 487.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Cuboid.ByLengths",
+        "Id": "1060f1a8308149d789519d97d7c80997",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 340.0,
+        "Y": 484.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Number Slider",
+        "Id": "abea80072ab04618856c174c74347bfe",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 17.0,
+        "Y": 488.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Mesh.ImportFile",
+        "Id": "7732a5ab53a64c998855d6293c9d5ea3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 140.63986062125718,
+        "Y": 113.11828657442533
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "File Path",
+        "Id": "60bd10716a3b45f881d80ef7a993207f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -89.821920833934485,
+        "Y": 112.37071728477596
+      }
+    ],
+    "Annotations": [],
+    "X": 68.539572198314659,
+    "Y": 97.259091909100277,
+    "Zoom": 1.0242200888742818
+  }
+}
