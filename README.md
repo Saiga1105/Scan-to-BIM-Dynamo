@@ -30,6 +30,7 @@ Use github's Large File System (LFS) to push changes to the origin.
 * install VSIX extension for Dynamo template https://github.com/alvpickmans/Dynamo-Dev-Starter-Kit.git
 * install Autodesk.Revit.SDK 2021.0.0 https://www.nuget.org/packages/Autodesk.Revit.SDK/
 * install Dynamo Sandbox 2.8 https://dynamobuilds.com/ (more functionality than Revit's current Dynamo)
+* include Rhinocommon.dll from src
 * install matlab runtime 9.4.1 (2019b)
 * Open Saiga.sln project solution
 * build solution
