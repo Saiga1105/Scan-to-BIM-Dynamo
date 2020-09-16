@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Saiga")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Scan-to-BIM nodes for point cloud processing, classification and reconstruction")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GENT")]
+[assembly: AssemblyCompany("KU Leuven, Belgium")]
 [assembly: AssemblyProduct("Saiga")]
 [assembly: AssemblyCopyright("Copyright © GENT 2020")]
 [assembly: AssemblyTrademark("")]

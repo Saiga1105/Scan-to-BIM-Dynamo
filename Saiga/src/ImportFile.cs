@@ -10,16 +10,16 @@ namespace Saiga
     /// <summary>
     /// Hello World basic sample
     /// </summary>
-    public static class HelloDynamo2
+    public static class PointCloud
     {
         /// <summary>
-        /// Prints a friendly greeting
+        /// Imports an .rcs point cloud 
         /// </summary>
-        /// <param name="name">Name of the person to greet</param>
-        /// <returns>A greeting</returns>
-        public static string SayHello2(string name)
+        /// <param fileName="fileName">Full file path of the point cloud to import </param>
+        /// <returns>pointCloud</returns>
+        public static string ImportFile(string fileName)
         {
-            return String.Format("Hello {0}!", name);
+            return String.Format("Hello {0}!", fileName);
         }
     }
 }
