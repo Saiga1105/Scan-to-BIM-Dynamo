@@ -60,6 +60,12 @@
       <ExcludeAssets>runtime</ExcludeAssets>
       <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MWArray.Extensions.v92">
+      <Version>0.4.6782.16417</Version>
+    </PackageReference>
+    <PackageReference Include="RhinoCommon">
+      <Version>6.29.20238.11501</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dist\" />
@@ -70,7 +76,8 @@
     <None Include="manifests\Saiga_DynamoCustomization.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\ImportFile.cs" />
+    <Compile Include="src\1.PointClouds\Selection.cs" />
+    <Compile Include="src\1.PointClouds\ImportFile.cs" />
     <Compile Include="src\HelloDynamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
